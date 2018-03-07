@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Header } from "./header";
+import { Portfolio } from "./portfolio";
 //{}es6 destructuring returning an object
 const styles = {
   fontFamily: "sans-serif",
@@ -12,6 +13,7 @@ class App extends React.Component {
     return (
       <div style={styles}>
         <Header />
+        <Portfolio />
       </div>
     );
   }
