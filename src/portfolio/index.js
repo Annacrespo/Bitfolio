@@ -11,15 +11,23 @@ export class Portfolio extends React.Component {
   render() {
     const prices = data.map((datapoint, index) => {
       const price = datapoint.ticker.price;
-      const time = datapoint.ticker.time;
-      return <Price key={`${index}-${time}`} price={price} time={time} />;
+      const time = datapoint.timestamp;
+      const currency = datapoint.ticker.target;
+      return (
+        <Price
+          key={`${index}-${time}`}
+          price={price}
+          currency={currency}
+          time={time}
+        />
+      );
     });
     return (
       <div>
         <ProfitLoss
           numBitcoins={this.state.numBitcoins}
-          price={data[data.length - 1].ticker.price}
-          startingPrice={data[0].ticker.price}
+          price={data[0].ticker.price}
+          startingPrice={data[data.length - 1].ticker.price}
         />
         {prices}
       </div>
