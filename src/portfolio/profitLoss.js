@@ -8,8 +8,7 @@ export class ProfitLoss extends React.Component {
     const value = numBitcoins * price;
     const PL = numBitcoins * (price - startingPrice);
     return (
-      <div>
-        <div>Bitcoins owned: {numBitcoins}</div>
+      <div style={{ margin: "10px", textAlign: "left" }}>
         <div>Total value: {value} </div>
         <div>P/L:{PL}</div>
       </div>
