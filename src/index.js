@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Header } from "./header";
+import { Footer } from "./footer";
 import { Portfolio } from "./portfolio";
 //{}es6 destructuring returning an object
 const styles = {
@@ -14,6 +15,7 @@ class App extends React.Component {
       <div style={styles}>
         <Header />
         <Portfolio />
+        <Footer />
       </div>
     );
   }
