@@ -2,6 +2,8 @@ import React from "react";
 import { data } from "../data";
 import { Price } from "./price";
 import { ProfitLoss } from "./profitLoss";
+import LineChart from "react-linechart";
+import "../../node_modules/react-linechart/dist/styles.css";
 
 export class Portfolio extends React.Component {
   state = {
@@ -13,19 +15,22 @@ export class Portfolio extends React.Component {
   };
   //onChange event function updates value automatically controls numBitcoins on Porfolio component
   render() {
+    const priceLine = {
+      color: "blue",
+      points: []
+    };
+    //new var priceLine created to add data to it in the existing map function on Portfolio
+    const priceData = [];
     const prices = data.map((datapoint, index) => {
       const price = datapoint.ticker.price;
       const time = datapoint.timestamp;
-      const currency = datapoint.ticker.target;
-      return (
-        <Price
-          key={`${index}-${time}`}
-          price={price}
-          currency={currency}
-          time={time}
-        />
-      );
+      priceLine.points.push = {
+        x: time,
+        y: price
+      };
+      return <Price price={price} time={time} />;
     });
+    priceData.push(priceLine);
     return (
       <div>
         <div>
@@ -47,6 +52,7 @@ export class Portfolio extends React.Component {
           //starting price as last element on the array
         />
         {prices}
+        <LineChart width={500} height={400} data={priceData} />
       </div>
     );
   }

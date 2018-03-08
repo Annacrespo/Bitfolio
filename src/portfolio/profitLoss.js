@@ -10,7 +10,7 @@ export class ProfitLoss extends React.Component {
     return (
       <div style={{ margin: "10px", textAlign: "left" }}>
         <div>Total value: {value} </div>
-        <div>P/L:{PL}</div>
+        <div>P/L:{PL} </div>
       </div>
     );
   }
